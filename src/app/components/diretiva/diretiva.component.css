@@ -3,7 +3,14 @@
 }
 
 .text-danger{
-  color: red;
+  background-color: red;
+}
+
+.bk-color-black{
+  background-color: black;
+  border: 5px solid blue;
+  padding: 20px;
+  margin: 20px;
 }
 
 .special{

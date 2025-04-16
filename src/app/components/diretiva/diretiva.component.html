@@ -1,3 +1,11 @@
 <h1>Directiva</h1>
 
+<!-- Se 'hasErro' for 'true', busca o que a classe 'errorClass' faz -->
 <p [ngClass]="{'errorClass' : hasError}">Vinicius Shuet</p>
+
+<h2 [ngClass]="classes">3 SIS 2025</h2>
+
+<!-- se o 'isSpecial' for 'true', chama classe 'special' SE NAO (:) nada -->
+<div [ngClass]="isSpecial ? 'special' : 'bk-color-black' " ></div>
+
+
