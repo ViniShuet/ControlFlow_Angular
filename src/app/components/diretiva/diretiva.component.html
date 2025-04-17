@@ -21,4 +21,10 @@
 
 <p>Campo: {{currentIten.name}}</p>
 
+<p>
+  UpperCase:
+  <input type="text" [ngModel]="currentIten.name" (ngModelChange)="setUpperCaseName($event)" id="name2">
+
+</p>
+
 
