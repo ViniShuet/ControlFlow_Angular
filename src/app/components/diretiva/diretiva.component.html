@@ -8,4 +8,17 @@
 <!-- se o 'isSpecial' for 'true', chama classe 'special' SE NAO (:) nada -->
 <div [ngClass]="isSpecial ? 'special' : 'bk-color-black' " ></div>
 
+<h2>Diretiva ngStyle</h2>
+
+<p [ngStyle]="{'background-color':color, 'font-size':size,'color':'red' }">
+  Testando diretiva style
+</p>
+
+<h2>Ng Model</h2>
+
+<label for="exemplo-ngModel">NgModel</label>
+<input [(ngModel)]="currentIten.name" id="name1">
+
+<p>Campo: {{currentIten.name}}</p>
+
 
