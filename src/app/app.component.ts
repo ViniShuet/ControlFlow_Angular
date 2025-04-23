@@ -4,7 +4,7 @@ import { InterpolacaoComponent } from './components/interpolacao/interpolacao.co
 import { ControlFlowComponent } from './components/control-flow/control-flow.component';
 import { PropertieBindingComponent } from './components/propertie-binding/propertie-binding.component';
 import { DiretivaComponent } from './components/diretiva/diretiva.component';
-import {Carros} from '../interfaces/carros'
+import {Carros} from './interfaces/carros'
 
 @Component({
   selector: 'app-root',
