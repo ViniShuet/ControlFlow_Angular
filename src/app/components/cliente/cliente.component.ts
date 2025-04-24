@@ -19,6 +19,7 @@ export class ClienteComponent {
   constructor(private clienteService:ClienteService, private formBuilder:FormBuilder,){
     this.clienteForm = formBuilder.group({
       nome: ['', Validators.required],
+      telefone: ['']
     })
   }
 
@@ -29,6 +30,12 @@ export class ClienteComponent {
   //metedo executado ao inicializar a pagina
   ngOnInit():void{
     this.list()
+  }
+
+  save(){
+    if(this.clienteForm.valid){
+      alert('Podemos salvar!')
+    }
   }
 
 }
