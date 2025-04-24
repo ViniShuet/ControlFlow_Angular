@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { Cliente } from '../../interfaces/cliente';
 import { ClienteService } from '../../services/cliente.service';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
-import { FormBuilder, Validator } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -14,5 +13,22 @@ import { CommonModule } from '@angular/common';
   styleUrl: './cliente.component.css'
 })
 export class ClienteComponent {
+  clienteForm : FormGroup = new FormGroup({})
+  clientes : Cliente[] = []
+
+  constructor(private clienteService:ClienteService, private formBuilder:FormBuilder,){
+    this.clienteForm = formBuilder.group({
+      nome: ['', Validators.required],
+    })
+  }
+
+  list():void{
+    this.clientes = this.clienteService.list()
+  }
+
+  //metedo executado ao inicializar a pagina
+  ngOnInit():void{
+    this.list()
+  }
 
 }
