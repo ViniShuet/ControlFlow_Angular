@@ -32,9 +32,32 @@ export class ClienteComponent {
     this.list()
   }
 
+  generateRandomString(length: number): string  {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let result = '';
+    const charactersLength = characters.length;
+    for (let i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+  }
+
   save(){
     if(this.clienteForm.valid){
-      alert('Podemos salvar!')
+      const formData = this.clienteForm.value
+
+      const clienteAdd : Cliente = {
+        id: this.generateRandomString(6),
+        nome: formData.nome,
+        telefone: formData.telefone
+      }
+      //console.log(clienteAdd)
+      this.clienteService.add(clienteAdd) //chamando a service para inserir
+      alert('Inserido com sucesso') //enviando feedback
+      this.clienteForm.reset() //limpar o form
+      this.list() //recarregar a lista abaixo com o item inserido
+    }else{
+      alert('Favor preencher os campos obrigatorios')
     }
   }
 
