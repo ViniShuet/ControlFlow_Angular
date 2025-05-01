@@ -8,6 +8,7 @@ import {Carros} from './interfaces/carros'
 import { ClienteComponent } from './components/cliente/cliente.component';
 import { HomeComponent } from './app/home/home.component';
 import { NavComponent } from './components/nav/nav.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,8 @@ import { NavComponent } from './components/nav/nav.component';
     DiretivaComponent, 
     ClienteComponent, 
     HomeComponent, 
-    NavComponent],
+    NavComponent,
+    NotfoundComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
