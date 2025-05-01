@@ -11,5 +11,5 @@ export const routes: Routes = [
     {path: 'cliente', component:ClienteComponent},
     {path: 'control-flow', component:ControlFlowComponent},
     {path: 'produto/:id', component:ProdutoDetalheComponent},
-    {path: '**', component:NotfoundComponent}
+    {path: '**', component:NotfoundComponent} //sempre precisa ser o ultimo
 ];
