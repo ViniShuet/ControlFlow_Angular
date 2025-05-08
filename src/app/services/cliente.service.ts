@@ -1,22 +1,29 @@
+import { Cliente } from './../interfaces/cliente';
 import { Injectable } from '@angular/core';
-import { Cliente } from '../interfaces/cliente'
+import { HttpClient} from '@angular/common/http';
+import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClienteService {
+  private apiUrl = 'http://localhost:3000/clientes'; //URL da API
 
-  //criar lista fake
-  clientes: Cliente[ ] = [
-    {id:"qualquer coisa", nome:"Vinicius", telefone:"9"},
-    {id:"coisa qualquer", nome:"Isa"}
-  ]
-  constructor() { }
 
-  //retorna lista clientes
-  list(): Cliente[]{
-    return this.clientes;
+  clientes: Cliente[ ] = []
+
+  //Injsecao de dependencia de http
+  constructor(private http:HttpClient) { }
+
+  list(): Observable<Cliente[]>{
+    return this.http.get<Cliente[]>(this.apiUrl) as Observable<Cliente[]>;
   }
+
+  // //retorna lista clientes
+  // list(): Cliente[]{
+  //   return this.clientes.get<Cliente[]>(this.apiUrl) as Observable(Cliente);
+  // }
 
   //metodo para remover um cliente
   remove(id:string){
@@ -30,12 +37,24 @@ export class ClienteService {
     }
   }
 
-  //metodo adicionar um cliente
-  add(cliente:Cliente){
-    //O push adiciona um item dentro de uma array
-    this.clientes.push(cliente)
-    console.log(this.clientes)
+  add(cliente: Cliente) {
+    const httpHeaders =
+    {
+      headers: {
+        'Content-type': 'application/json',
+      },
+    };
+
+    return this.http.post(this.apiUrl, cliente, httpHeaders);
   }
+
+
+  //metodo adicionar um cliente
+  // add(cliente:Cliente){
+  //   //O push adiciona um item dentro de uma array
+  //   this.clientes.push(cliente)
+  //   console.log(this.clientes)
+  // }
 
   //metodo atualizar
   update(id:string, cliente:Cliente){

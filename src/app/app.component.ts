@@ -1,3 +1,5 @@
+import { CategoriaComponent } from './components/categoria/categoria.component';
+import { Categoria } from './interfaces/categoria';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { InterpolacaoComponent } from './components/interpolacao/interpolacao.component';
@@ -13,15 +15,16 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, 
-    InterpolacaoComponent, 
-    ControlFlowComponent, 
-    PropertieBindingComponent, 
-    DiretivaComponent, 
-    ClienteComponent, 
-    HomeComponent, 
+  imports: [RouterOutlet,
+    InterpolacaoComponent,
+    ControlFlowComponent,
+    PropertieBindingComponent,
+    DiretivaComponent,
+    ClienteComponent,
+    HomeComponent,
     NavComponent,
-    NotfoundComponent],
+    NotfoundComponent,
+    CategoriaComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

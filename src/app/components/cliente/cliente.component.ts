@@ -24,9 +24,11 @@ export class ClienteComponent {
     })
   }
 
-  list():void{
-    this.clientes = this.clienteService.list()
+
+  list(): void {
+    this.clienteService.list().subscribe((resposta) => (this.clientes = resposta));
   }
+
 
   //metedo executado ao inicializar a pagina
   ngOnInit():void{
@@ -64,7 +66,7 @@ export class ClienteComponent {
           telefone: formData.telefone
         }
         //console.log(clienteAdd)
-        this.clienteService.add(clienteAdd) //chamando a service para inserir
+        this.clienteService.add(clienteAdd).subscribe() //chamando a service para inserir
         alert('Inserido com sucesso') //enviando feedback
         this.list() //recarregar a lista abaixo com o item inserido
       }
@@ -80,18 +82,18 @@ export class ClienteComponent {
     //pelo id enviado como parametro
     console.log(this.clienteService.list)
 
-    const cliente = this.clienteService.list().find(c => c.id == id)
-    if(cliente){
-      this.clienteIdEdicao = cliente.id
+    // const cliente = this.clienteService.list().find(c => c.id == id)
+    // if(cliente){
+    //   this.clienteIdEdicao = cliente.id
 
-      //atribuir os valores ao formulario
-      this.clienteForm.patchValue(
-        {
-          nome: cliente.nome,
-          telefone: cliente.telefone
-        }
-      )
-    }
+    //   //atribuir os valores ao formulario
+    //   this.clienteForm.patchValue(
+    //     {
+    //       nome: cliente.nome,
+    //       telefone: cliente.telefone
+    //     }
+    //   )
+    // }
   }
 
   remover(id:string):void{
