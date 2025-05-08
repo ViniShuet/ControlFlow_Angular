@@ -9,12 +9,11 @@
     </tr>
   </thead>
   <tbody>
-    @for (categoria of categorias; track $index) {
-    <tr>
-      <td>{{categorias.nome}}</td>
-      <td>{{categorias.descricao}}</td>
-      <!-- <td>{{categorias.ativa}}</td> -->
+
+    <tr *ngFor="let categoria of categorias; let i = index">
+      <td>{{categoria.nome}}</td>
+      <td>{{categoria.descricao}}</td>
+      <td>{{ categoria.ativa ? 'Sim' : 'Não' }}</td>
     </tr>
-    }
   </tbody>
 </table>

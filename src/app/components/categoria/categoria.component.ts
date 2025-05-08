@@ -21,6 +21,8 @@ export class CategoriaComponent {
       nome: ['', Validators.required],
       descricao: ['']
     })
+
+    this.list()
   }
 
   list(): void {
